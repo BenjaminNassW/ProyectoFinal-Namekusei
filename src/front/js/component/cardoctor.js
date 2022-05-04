@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../../styles/home.css";
+import "../../styles/list.css";
+import { Card, Button } from "react-bootstrap";
 
 export const Cardoctor = () => {
   return (
-    <Card className="cardoctor">
+    <Card className="cardoctor1">
       <Card.Img
         className="imgcard"
         variant="top"
@@ -12,14 +13,13 @@ export const Cardoctor = () => {
       />
       <Card.Body>
         <Card.Title>
-          <h1>ESPECIALIDAD</h1>
+          <h1 className="title">Especialidad</h1>
         </Card.Title>
         <Card.Text>Medico Especialista en kkkkkk </Card.Text>
         <div className="d-flex align-items-center">
-          <Link>
-            <Button className="boton">Learn more!</Button>
+          <Link to={"/doctor"}>
+            <Button className="book">Booking</Button>
           </Link>
-          <Button className="showmore">x</Button>
         </div>
       </Card.Body>
     </Card>

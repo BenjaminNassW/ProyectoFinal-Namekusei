@@ -1,0 +1,34 @@
+.cards {
+  margin: 0px;
+  margin-left: 100px;
+  margin-right: 100px;
+  overflow-x: scroll;
+  background-color: rgba(0, 174, 255, 0.524);
+  border: 2px solid rgba(0, 0, 0, 0.351);
+  border-radius: 10px;
+  margin: 30px;
+
+  height: 390px;
+}
+.card {
+  margin: 10px;
+  min-width: 20rem;
+  scrollbar-color: red blue;
+  border: 1px solid;
+
+  box-shadow: 5px 5px 8px 5px #1e1d1d7f;
+}
+.cardoctor1 {
+  height: 318px;
+  margin: 10px;
+}
+.imgcard {
+  height: 150px;
+}
+.book {
+  margin: 1px;
+}
+.title {
+  color: rgba(0, 0, 0, 0.458);
+  text-decoration: underline;
+}

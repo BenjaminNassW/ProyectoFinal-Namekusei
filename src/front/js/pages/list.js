@@ -1,5 +1,6 @@
 import React from "react";
 import { Cardoctor } from "../component/cardoctor";
+import "../../styles/list.css";
 
 export const List = () => {
   return (
@@ -12,9 +13,39 @@ export const List = () => {
       </div>
 
       <div>
-        <div className="cardkine">
-          <div className="kine">KINESIOLOGOS</div>
-          <div className="d-flex">
+        <div className="cards">
+          <div className="title1">Kinesiologo</div>
+          <div className="d-flex doctor">
+            <Cardoctor />
+            <Cardoctor />
+            <Cardoctor />
+            <Cardoctor />
+            <Cardoctor />
+            <Cardoctor />
+            <Cardoctor />
+          </div>
+        </div>
+        <div className="cards">
+          <div className="title">Terapeuta Ocupacional</div>
+          <div className="d-flex doctor">
+            <Cardoctor />
+            <Cardoctor />
+            <Cardoctor />
+            <Cardoctor />
+            <Cardoctor />
+            <Cardoctor />
+            <Cardoctor />
+          </div>
+        </div>
+        <div className="cards">
+          <div className="title">Dentista</div>
+          <div className="d-flex doctor">
+            <Cardoctor />
+            <Cardoctor />
+            <Cardoctor />
+            <Cardoctor />
+            <Cardoctor />
+            <Cardoctor />
             <Cardoctor />
           </div>
         </div>
