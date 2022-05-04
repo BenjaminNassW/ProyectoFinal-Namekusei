@@ -8,6 +8,7 @@ import { Login } from "./pages/login";
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
+import { List } from "./pages/list";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -27,6 +28,9 @@ const Layout = () => {
           <Switch>
             <Route exact path="/">
               <Home />
+            </Route>
+            <Route exact path="/list">
+              <List />
             </Route>
             <Route exact path="/login">
               <Login />
