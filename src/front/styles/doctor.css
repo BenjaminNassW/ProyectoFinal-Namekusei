@@ -1,0 +1,7 @@
+.img {
+  height: 200px;
+  width: 200px;
+  border: 1px solid rgb(77, 147, 233);
+  margin: 10px;
+  border-radius: 30%;
+}
