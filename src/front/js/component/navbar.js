@@ -11,7 +11,7 @@ export const Navbar = () => {
         <Link to="/">
           <span>Busca un especialista</span>
         </Link>
-        <Link to="/">
+        <Link to="/info">
           <span>¿Que hacemos?</span>
         </Link>
         <div className="ml-auto">
