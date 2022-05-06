@@ -1,7 +1,41 @@
 .img {
-  height: 200px;
+  height: 220px;
   width: 200px;
   border: 1px solid rgb(77, 147, 233);
-  margin: 10px;
+  margin-right: 10px;
   border-radius: 30%;
+}
+.description {
+  margin: 10px;
+  padding: 10px;
+}
+.profile {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+.experiencia {
+  margin: 10px;
+  padding: 10px;
+}
+h5 {
+  background-color: rgba(147, 142, 142, 0.462);
+  height: 1px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+p {
+  padding: 15px;
+  margin: 20px;
+}
+.iconos {
+  margin: 5px;
+}
+.icono2 {
+  height: 26px;
+  width: 26px;
+  margin-right: 5px;
+}
+h2 {
+  text-align: center;
 }
