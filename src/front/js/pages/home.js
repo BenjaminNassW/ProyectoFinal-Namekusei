@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
@@ -14,6 +15,9 @@ export const Home = () => {
       <input placeholder="Region" className="me-1"></input>
       <input placeholder="Comuna" className="me-1"></input>
       <button className="btn-primary">Buscar</button>
+      <Link to="/booking">
+        <button className="btn-primary ">Agendar</button>
+      </Link>
       {/* <div className="alert alert-info">
 				{store.message || "Loading message from the backend (make sure your python backend is running)..."}
 			</div> */}
