@@ -11,24 +11,27 @@
   height: 390px;
 }
 .card {
-  margin: 10px;
   min-width: 20rem;
   scrollbar-color: red blue;
   border: 1px solid;
-
+  width: 300px;
   box-shadow: 5px 5px 8px 5px #1e1d1d7f;
 }
 .cardoctor1 {
-  height: 318px;
+  height: 330px;
   margin: 10px;
 }
 .imgcard {
-  height: 150px;
+  height: 180px;
 }
 .book {
-  margin: 1px;
+  margin: none;
 }
 .title {
   color: rgba(0, 0, 0, 0.458);
   text-decoration: underline;
+}
+.card-text {
+  margin: 0%;
+  padding: 2px;
 }

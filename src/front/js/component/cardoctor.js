@@ -9,14 +9,14 @@ export const Cardoctor = () => {
       <Card.Img
         className="imgcard"
         variant="top"
-        src="https://i.pinimg.com/736x/d7/64/18/d76418f406971b8b0c02d158e159d920.jpg"
+        src="https://st.depositphotos.com/1518767/4293/i/950/depositphotos_42930187-stock-photo-smiling-male-doctor-with-arms.jpg"
       />
       <Card.Body>
         <Card.Title>
           <h1 className="title">Especialidad</h1>
         </Card.Title>
         <Card.Text>Medico Especialista en kkkkkk </Card.Text>
-        <div className="d-flex align-items-center">
+        <div className="d-flex">
           <Link to={"/doctor"}>
             <Button className="book">Booking</Button>
           </Link>
