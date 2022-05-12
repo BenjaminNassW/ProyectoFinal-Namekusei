@@ -12,10 +12,6 @@ export const Navbar = () => {
               src="https://cdn-icons-png.flaticon.com/512/822/822111.png"
               className="logo"
             ></img>
-            <img
-              src="https://cdn-icons.flaticon.com/png/512/2278/premium/2278610.png?token=exp=1651805494~hmac=f5ce7e275ffa8218b9337cad34245cba"
-              className="logo"
-            ></img>
           </span>
         </Link>
         <Link to="/list">

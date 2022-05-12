@@ -1,0 +1,61 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+.rating {
+  float: left;
+}
+
+/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+    follow these rules. Every browser that supports :checked also supports :not(), so
+    it doesn’t make the test unnecessarily selective */
+.rating:not(:checked) > input {
+  position: absolute;
+  top: -9999px;
+  clip: rect(0, 0, 0, 0);
+}
+
+.rating:not(:checked) > label {
+  float: right;
+  width: 0.85em;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 2em;
+  line-height: 1.2;
+  color: #ddd;
+  text-shadow: 1px 1px #bbb, 2px 2px #666, 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.rating:not(:checked) > label:before {
+  content: "★ ";
+}
+
+.rating > input:checked ~ label {
+  color: rgb(0, 149, 255);
+  text-shadow: 1px 1px rgb(33, 162, 205), 2px 2px rgb(58, 199, 237),
+    1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: rgb(0, 51, 255);
+  text-shadow: 1px 1px rgb(32, 51, 218), 2px 2px #273ed5,
+    1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+  color: rgb(30, 100, 221);
+  text-shadow: 1px 1px rgb(50, 115, 194), 2px 2px #2858a0,
+    1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* just for demo purposes */
+html {
+  background: #efefef;
+}

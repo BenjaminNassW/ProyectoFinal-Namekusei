@@ -12,6 +12,7 @@ import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import { Doctor } from "./pages/doctor";
 import { List } from "./pages/list";
+
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";

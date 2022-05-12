@@ -8,6 +8,7 @@
 .description {
   margin: 10px;
   padding: 10px;
+  background-color: azure;
 }
 .profile {
   display: flex;
@@ -17,6 +18,7 @@
 .experiencia {
   margin: 10px;
   padding: 10px;
+  background-color: azure;
 }
 h5 {
   background-color: rgba(147, 142, 142, 0.462);
@@ -38,4 +40,8 @@ p {
 }
 h2 {
   text-align: center;
+}
+body {
+  background-color: rgb(235, 235, 235);
+  height: 10000px;
 }
