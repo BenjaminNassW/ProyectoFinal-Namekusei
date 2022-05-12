@@ -7,7 +7,7 @@ from flask_migrate import Migrate
 from flask_swagger import swagger
 from flask_cors import CORS
 from api.utils import APIException, generate_sitemap
-from api.models import db
+from api.models import db, User, Specialist, Region, Comuna, Client, Schedule, Reservation
 from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
@@ -19,7 +19,7 @@ static_file_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../
 app = Flask(__name__)
 app.url_map.strict_slashes = False
 
-# database condiguration
+# database configuration
 db_url = os.getenv("DATABASE_URL")
 if db_url is not None:
     app.config['SQLALCHEMY_DATABASE_URI'] = db_url.replace("postgres://", "postgresql://")
@@ -63,6 +63,26 @@ def serve_any_other_file(path):
     response.cache_control.max_age = 0 # avoid cache memory
     return response
 
+
+@app.route('/specialist', methods = ['GET'])
+def getSpecialists():
+    all_specialists = Specialist.query.all()
+    specialist_array = list(map(lambda x:x.serialize(), all_specialists))
+    return jsonify({"Specialists": specialist_array})
+
+@app.route('/specialist/<int:specialist_id>', methods=['GET'])
+def getSpecialistID(people_id):
+    one_specialist = People.query.get(people_id)
+    if one_specialist:
+        return jsonify({"specialist id": one_specialist.serialize()})
+    else:
+        return "Este especialista no existe, intenta nuevamente con otro"
+
+"""@app.route('/client', methods = ['POST'])
+def postClient():
+    all_Client = Client.query.all()
+    specialist_array = list(map(lambda x:x.serialize(), all_specialists))
+    return jsonify({"Specialists": specialist_array})"""
 
 # this only runs if `$ python src/main.py` is executed
 if __name__ == '__main__':
