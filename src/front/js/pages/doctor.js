@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import "../../styles/doctor.css";
 
 import EvaluationModal from "../component/evaluationModal";
@@ -24,10 +25,11 @@ export const Doctor = () => {
             <h4>Especialista Veterinaria</h4>
             <div>Valor consulta</div>
             <div>Atención presencial en Comuna, Region</div>
-
-            <button className="btn btn-primary me-1 m-2">
-              Reserva tu hora
-            </button>
+            <Link to="/booking">
+              <button className="btn btn-primary me-1 m-2">
+                Reserva tu hora
+              </button>
+            </Link>
             <EvaluationModal />
           </div>
         </div>

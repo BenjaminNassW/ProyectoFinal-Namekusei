@@ -8,7 +8,7 @@ export const Signup = () => {
   return (
     <div className="container col-4">
       <form>
-        <h1>Sign Up</h1>
+        <h1 className="mt-5">Sign Up</h1>
         <div className="mb-3">
           <label for="exampleInputEmail1" className="form-label">
             Email address
