@@ -8,33 +8,41 @@ import "react-datepicker/dist/react-datepicker.css";
 import "react-datepicker/dist/react-datepicker-cssmodules.css";
 export const Booking = () => {
   const { store, actions } = useContext(Context);
-
-  const [startDate, setStartDate] = useState(
-    setHours(setMinutes(new Date(), 30), 16)
-  );
+  const [prueba, setPrueba] = useState(true);
+  const [dataForm, setdataForm] = useState({
+    date: setHours(setMinutes(new Date(), 30), 16),
+  });
+  const onChange = (e) => {
+    setdataForm({
+      ...dataForm,
+      [e.target.name]: e.target.value,
+    });
+  };
+  useEffect(() => {
+    console.log(store.user);
+  }, [prueba]);
   return (
     <div className="container">
       <h1>Datos Personales</h1>
 
-      <DatePicker
-        selected={startDate}
-        onChange={(date) => setStartDate(date)}
-        showTimeSelect
-        excludeTimes={[
-          setHours(setMinutes(new Date(), 0), 17),
-          setHours(setMinutes(new Date(), 30), 18),
-          setHours(setMinutes(new Date(), 30), 19),
-          setHours(setMinutes(new Date(), 30), 17),
-        ]}
-        dateFormat="MMMM d, yyyy h:mm aa"
-      />
-      <form className="row g-3">
+      <form
+        className="row g-3"
+        onSubmit={(e) => {
+          e.preventDefault();
+          actions.saveUser(dataForm);
+          setPrueba(!prueba);
+        }}
+      >
         <div className="col-md-6">
           <label htmlFor="inputEmail4" className="form-label">
             Nombre
           </label>
           <input
-            type="email"
+            onChange={(e) => {
+              onChange(e);
+            }}
+            name="name"
+            type="text"
             className="form-control"
             id="inputEmail4"
             placeholder="Benjamin"
@@ -45,7 +53,11 @@ export const Booking = () => {
             Apellido
           </label>
           <input
-            type="name"
+            onChange={(e) => {
+              onChange(e);
+            }}
+            name="lastname"
+            type="text"
             className="form-control"
             id="inputPassword4"
             placeholder="Rojas"
@@ -56,6 +68,10 @@ export const Booking = () => {
             Telefono
           </label>
           <input
+            onChange={(e) => {
+              onChange(e);
+            }}
+            name="telefono"
             type="text"
             className="form-control"
             id="phone"
@@ -67,6 +83,9 @@ export const Booking = () => {
             Ciudad
           </label>
           <input
+            onChange={(e) => {
+              onChange(e);
+            }}
             type="text"
             className="form-control"
             id="inputCity"
@@ -77,9 +96,20 @@ export const Booking = () => {
           <label htmlFor="inputState" className="form-label">
             Comuna
           </label>
-          <select id="inputState" className="form-select">
-            <option selected>Elige...</option>
-            <option>...</option>
+          <select
+            name="Comuna"
+            onChange={(e) => {
+              onChange(e);
+            }}
+            id="inputState"
+            className="form-select"
+          >
+            <option name="Comuna" selected>
+              Elige...
+            </option>
+            <option name="prueba1">prueba1</option>
+            <option name="prueba2">prueba2</option>
+            <option name="prueba3">prueba3</option>
           </select>
         </div>
         <div className="col-md-2">
@@ -87,8 +117,8 @@ export const Booking = () => {
             Fecha
           </label>
           <DatePicker
-            selected={startDate}
-            onChange={(date) => setStartDate(date)}
+            selected={dataForm.date}
+            onChange={(date) => setdataForm({ date: date })}
             showTimeSelect
             excludeTimes={[
               setHours(setMinutes(new Date(), 0), 17),
@@ -104,6 +134,10 @@ export const Booking = () => {
             Direccion
           </label>
           <input
+            onChange={(e) => {
+              onChange(e);
+            }}
+            name="Adress"
             type="text"
             className="form-control"
             id="inputAddress"
@@ -123,13 +157,7 @@ export const Booking = () => {
           </div>
         </div>
         <div className="col-12">
-          <button
-            type="submit"
-            className="btn btn-primary"
-            onClick={() => {
-              alert("Tu hora ha sido agendada correctamente");
-            }}
-          >
+          <button type="submit" className="btn btn-primary">
             Agendar
           </button>
         </div>
