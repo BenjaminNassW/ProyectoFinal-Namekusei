@@ -64,7 +64,7 @@ export const Booking = () => {
           />
         </div>
         <div className="col-12">
-          <label htmlFor="inputAddress2" className="form-label">
+          <label htmlFor="phone" className="form-label">
             Telefono
           </label>
           <input
