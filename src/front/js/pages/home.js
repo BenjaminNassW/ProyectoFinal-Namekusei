@@ -5,24 +5,69 @@ import { Link } from "react-router-dom";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
-  const { name, setName } = useState([]);
+  const [name, setName] = useState("");
+  const [expert, setExpert] = useState("");
+  const [region, setRegion] = useState("");
+
   useEffect(() => {
-    console.log();
-  }, []);
+    console.log(name);
+  }, [name]);
+
   return (
     <div className="text-center mt-5">
       <h1>Busca tu doctor!</h1>
       <>
-        <input placeholder="Nombre" className="me-1"></input>
+        <input
+          placeholder="Nombre"
+          className="me-1"
+          onChange={(e) => {
+            setName(e.target.value.toLowerCase());
+          }}
+        ></input>
         <p>
           {store.doctor.map((obj, index) => {
-            return obj.namelast;
+            if (obj.namefirst.toLowerCase().includes(name) && name !== "") {
+              return obj.namefirst;
+            }
           })}
         </p>
       </>
-      <input placeholder="Especialidad" className="me-1"></input>
-      <input placeholder="Region" className="me-1"></input>
-      <input placeholder="Comuna" className="me-1"></input>
+      <>
+        <input
+          placeholder="Especialidad"
+          className="me-1"
+          onChange={(e) => {
+            setExpert(e.target.value.toLowerCase());
+          }}
+        ></input>
+        <p>
+          {store.doctor.map((obj, index) => {
+            if (obj.namelast.toLowerCase().includes(expert) && expert !== "") {
+              return <li>{obj.namelast}</li>;
+            }
+          })}
+        </p>
+      </>
+      <select
+        onChange={(e) => {
+          setRegion(e.target.value);
+          console.log(region);
+        }}
+        id="regiones"
+      >
+        <option selected>Elija una region...</option>
+        {store.regiones.map((obj, index) => {
+          return <option key={index}>{obj.NombreRegion}</option>;
+        })}
+      </select>
+      <select id="comunas">
+        {store.regiones
+          .filter((obj) => obj.NombreRegion == region)
+          .map((filteredRegion, i) => {
+            return <option key={i}>{filteredRegion.comunas}</option>;
+          })}
+      </select>
+
       <button className="btn-primary">Buscar</button>
 
       {/* <div className="alert alert-info">
