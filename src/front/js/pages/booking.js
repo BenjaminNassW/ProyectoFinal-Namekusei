@@ -86,6 +86,7 @@ export const Booking = () => {
             onChange={(e) => {
               onChange(e);
             }}
+            name="city"
             type="text"
             className="form-control"
             id="inputCity"

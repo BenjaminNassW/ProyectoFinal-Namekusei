@@ -27,7 +27,7 @@ export const Home = () => {
         <p>
           {store.doctor.map((obj, index) => {
             if (obj.namefirst.toLowerCase().includes(name) && name !== "") {
-              return obj.namefirst;
+              return <li>{obj.namefirst}</li>;
             }
           })}
         </p>
@@ -62,9 +62,9 @@ export const Home = () => {
       </select>
       <select id="comunas">
         {store.regiones
-          .filter((obj) => obj.NombreRegion == region)
-          .map((filteredRegion, i) => {
-            return <option key={i}>{filteredRegion.comunas}</option>;
+          .filter((obj) => obj.NombreRegion == region)[0]
+          ?.comunas.map((filteredRegion, i) => {
+            return <option key={i}>{filteredRegion} </option>;
           })}
       </select>
 
