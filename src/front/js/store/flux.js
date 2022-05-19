@@ -402,7 +402,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             "San José de Maipo",
             "Colina",
             "Lampa",
-            "TilVl",
+            "Tiltil",
             "San Bernardo",
             "Buin",
             "Calera de Tango",

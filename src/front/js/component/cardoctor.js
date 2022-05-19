@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../../styles/list.css";
 import { Card, Button } from "react-bootstrap";
 
-export const Cardoctor = () => {
+export const Cardoctor = (props) => {
   return (
     <Card className="cardoctor1">
       <Card.Img
@@ -16,6 +16,7 @@ export const Cardoctor = () => {
           <h1 className="title">Especialidad</h1>
         </Card.Title>
         <Card.Text>Medico Especialista en kkkkkk </Card.Text>
+        <Card.Text>{props.obj?.namefirst}</Card.Text>
         <div className="d-flex">
           <Link to={"/doctor"}>
             <Button className="book">Booking</Button>

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import { Link } from "react-router-dom";
+import { Cardoctor } from "../component/cardoctor";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
@@ -24,13 +25,6 @@ export const Home = () => {
             setName(e.target.value.toLowerCase());
           }}
         ></input>
-        <p>
-          {store.doctor.map((obj, index) => {
-            if (obj.namefirst.toLowerCase().includes(name) && name !== "") {
-              return <li>{obj.namefirst}</li>;
-            }
-          })}
-        </p>
       </>
       <>
         <input
@@ -67,9 +61,20 @@ export const Home = () => {
             return <option key={i}>{filteredRegion} </option>;
           })}
       </select>
-
-      <button className="btn-primary">Buscar</button>
-
+      {name !== "" && (
+        <div>
+          <div className="cards">
+            <div className="title1">Kinesiologo</div>
+            <div className="d-flex doctor">
+              {store.doctor.map((obj, index) => {
+                if (obj.namefirst.toLowerCase().includes(name) && name !== "") {
+                  return <Cardoctor key={index} obj={obj}></Cardoctor>;
+                }
+              })}
+            </div>
+          </div>
+        </div>
+      )}
       {/* <div className="alert alert-info">
 				{store.message || "Loading message from the backend (make sure your python backend is running)..."}
 			</div> */}
