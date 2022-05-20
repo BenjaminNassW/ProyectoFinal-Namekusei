@@ -1,14 +1,17 @@
 .img {
-  height: 220px;
-  width: 200px;
+  height: 230px;
+  width: 230px;
   border: 1px solid rgb(77, 147, 233);
-  margin-right: 10px;
-  border-radius: 30%;
+  border-radius: 10px;
 }
 .description {
-  margin: 10px;
+  margin: 5px;
   padding: 10px;
   background-color: azure;
+
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
 }
 .profile {
   display: flex;
@@ -16,9 +19,10 @@
   padding: 10px;
 }
 .experiencia {
-  margin: 10px;
+  margin: 5px;
   padding: 10px;
   background-color: azure;
+  border-radius: 20px;
 }
 h5 {
   background-color: rgba(147, 142, 142, 0.462);
@@ -44,4 +48,8 @@ h2 {
 body {
   background-color: rgb(235, 235, 235);
   height: 10000px;
+}
+.valoracion {
+  width: 300px;
+  height: 500px;
 }

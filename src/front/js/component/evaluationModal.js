@@ -4,8 +4,9 @@ import { Modal, Button, Form } from "react-bootstrap";
 import Start from "../component/start";
 import "../../styles/start.css";
 
-export default function EvaluationModal() {
+export default function EvaluationModal({ saveRating }) {
   const [show, setShow] = useState(false);
+  const [ranking, setRank] = useState(0);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -20,7 +21,7 @@ export default function EvaluationModal() {
         <Modal.Header closeButton>
           <Modal.Title>Valora al expecialista</Modal.Title>
         </Modal.Header>
-        <Start />
+        <Start ranking={ranking} setRank={setRank} />
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -48,7 +49,13 @@ export default function EvaluationModal() {
           <Button variant="secondary" onClick={handleClose}>
             Cancelar
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button
+            variant="primary"
+            onClick={() => {
+              saveRating(ranking);
+              handleClose();
+            }}
+          >
             Guardar Valoración
           </Button>
         </Modal.Footer>
