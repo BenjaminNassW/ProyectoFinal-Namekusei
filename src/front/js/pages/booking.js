@@ -32,6 +32,7 @@ export const Booking = () => {
           e.preventDefault();
           actions.saveUser(dataForm);
           setPrueba(!prueba);
+          console.log(store.user);
         }}
       >
         <div className="col-md-6">
@@ -87,6 +88,7 @@ export const Booking = () => {
             onChange={(e) => {
               onChange(e);
             }}
+            name="city"
             type="text"
             className="form-control"
             id="inputCity"
