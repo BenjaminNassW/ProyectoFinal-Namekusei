@@ -1,14 +1,17 @@
 .img {
   height: 220px;
-  width: 200px;
-  border: 1px solid rgb(77, 147, 233);
-  margin-right: 10px;
-  border-radius: 30%;
+  width: 220px;
+  border: 1px solid rgba(77, 147, 233, 0.29);
+  border-radius: 10px;
 }
 .description {
-  margin: 10px;
+  margin: 5px;
   padding: 10px;
   background-color: azure;
+  text-align: center;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
 }
 .profile {
   display: flex;
@@ -16,9 +19,10 @@
   padding: 10px;
 }
 .experiencia {
-  margin: 10px;
+  margin: 5px;
   padding: 10px;
   background-color: azure;
+  border-radius: 20px;
 }
 h5 {
   background-color: rgba(147, 142, 142, 0.462);
@@ -29,6 +33,7 @@ h5 {
 p {
   padding: 15px;
   margin: 20px;
+  text-align: center;
 }
 .iconos {
   margin: 5px;
@@ -43,5 +48,23 @@ h2 {
 }
 body {
   background-color: rgb(235, 235, 235);
-  height: 10000px;
+}
+.valoracion {
+  padding: 10px;
+  height: 300px;
+}
+
+.iconstar {
+  width: 20px;
+  height: 20px;
+  fill: "#f65788";
+}
+.usuario {
+  margin: 10px;
+  align-items: flex-start;
+  border: 1px skyblue solid;
+}
+.listExperience {
+  overflow-y: scroll;
+  height: 300px;
 }

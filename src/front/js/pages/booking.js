@@ -6,6 +6,7 @@ import setHours from "date-fns/setHours";
 import setMinutes from "date-fns/setMinutes";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-datepicker/dist/react-datepicker-cssmodules.css";
+
 export const Booking = () => {
   const { store, actions } = useContext(Context);
   const [prueba, setPrueba] = useState(true);

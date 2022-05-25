@@ -4,9 +4,11 @@ import { Modal, Button, Form } from "react-bootstrap";
 import Start from "../component/start";
 import "../../styles/start.css";
 
-export default function EvaluationModal() {
+export default function EvaluationModal({ saveRating }) {
   const [show, setShow] = useState(false);
-
+  const [ranking, setRank] = useState(0);
+  const [mail, setMail] = useState("");
+  const [experiense, setExperiense] = useState("");
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -20,7 +22,7 @@ export default function EvaluationModal() {
         <Modal.Header closeButton>
           <Modal.Title>Valora al expecialista</Modal.Title>
         </Modal.Header>
-        <Start />
+        <Start ranking={ranking} setRank={setRank} />
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -31,6 +33,9 @@ export default function EvaluationModal() {
                 type="email"
                 placeholder="name@example.com"
                 autoFocus
+                onChange={(e) => {
+                  setMail(e.target.value);
+                }}
               />
             </Form.Group>
             <Form.Group
@@ -40,7 +45,13 @@ export default function EvaluationModal() {
               <Form.Label>
                 Cuentanos sobre tu experiencia con el Medico...
               </Form.Label>
-              <Form.Control as="textarea" rows={3} />
+              <Form.Control
+                as="textarea"
+                rows={3}
+                onChange={(e) => {
+                  setExperiense(e.target.value);
+                }}
+              />
             </Form.Group>
           </Form>
         </Modal.Body>
@@ -48,7 +59,14 @@ export default function EvaluationModal() {
           <Button variant="secondary" onClick={handleClose}>
             Cancelar
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button
+            variant="primary"
+            onClick={() => {
+              saveRating(ranking, mail, experiense);
+
+              handleClose();
+            }}
+          >
             Guardar Valoración
           </Button>
         </Modal.Footer>

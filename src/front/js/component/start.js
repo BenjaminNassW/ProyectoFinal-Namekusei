@@ -2,17 +2,10 @@ import { useState } from "react";
 import React from "react";
 import "../../styles/start.css";
 
-export default function Start() {
-  const [ranking, setRank] = useState(0);
-
+export default function Start({ ranking, setRank }) {
   return (
     <div className="App">
       <fieldset class="rating">
-        <legend>
-          {ranking == 0
-            ? "No has calificado"
-            : "Tu calificacion es : " + ranking}
-        </legend>
         <input
           type="radio"
           id="star5"
