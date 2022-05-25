@@ -9,6 +9,7 @@ export const Home = () => {
   const [name, setName] = useState("");
   const [expert, setExpert] = useState("");
   const [region, setRegion] = useState("");
+  const [comuna, setComuna] = useState("");
 
   useEffect(() => {
     console.log(name);
@@ -34,13 +35,6 @@ export const Home = () => {
             setExpert(e.target.value.toLowerCase());
           }}
         ></input>
-        <p>
-          {store.doctor.map((obj, index) => {
-            if (obj.namelast.toLowerCase().includes(expert) && expert !== "") {
-              return <li>{obj.namelast}</li>;
-            }
-          })}
-        </p>
       </>
       <select
         onChange={(e) => {
@@ -54,7 +48,12 @@ export const Home = () => {
           return <option key={index}>{obj.NombreRegion}</option>;
         })}
       </select>
-      <select id="comunas">
+      <select
+        id="comunas"
+        onChange={(e) => {
+          setComuna(e.target.value.toLocaleLowerCase());
+        }}
+      >
         {store.regiones
           .filter((obj) => obj.NombreRegion == region)[0]
           ?.comunas.map((filteredRegion, i) => {
@@ -68,6 +67,37 @@ export const Home = () => {
             <div className="d-flex doctor">
               {store.doctor.map((obj, index) => {
                 if (obj.namefirst.toLowerCase().includes(name) && name !== "") {
+                  return <Cardoctor key={index} obj={obj}></Cardoctor>;
+                }
+              })}
+            </div>
+          </div>
+        </div>
+      )}
+      {expert !== "" && (
+        <div>
+          <div className="cards">
+            <div className="title1">Kinesiologo</div>
+            <div className="d-flex doctor">
+              {store.doctor.map((obj, index) => {
+                if (
+                  obj.namelast.toLowerCase().includes(expert) &&
+                  expert !== ""
+                ) {
+                  return <Cardoctor key={index} obj={obj}></Cardoctor>;
+                }
+              })}
+            </div>
+          </div>
+        </div>
+      )}
+      {comuna !== "" && (
+        <div>
+          <div className="cards">
+            <div className="title1">Kinesiologo</div>
+            <div className="d-flex doctor">
+              {store.doctor.map((obj, index) => {
+                if (obj.city.toLowerCase().includes(comuna) && comuna !== "") {
                   return <Cardoctor key={index} obj={obj}></Cardoctor>;
                 }
               })}

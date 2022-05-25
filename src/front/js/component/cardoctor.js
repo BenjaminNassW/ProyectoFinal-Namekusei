@@ -16,7 +16,9 @@ export const Cardoctor = (props) => {
           <h1 className="title">Especialidad</h1>
         </Card.Title>
         <Card.Text>Medico Especialista en kkkkkk </Card.Text>
-        <Card.Text>{props.obj?.namefirst}</Card.Text>
+        <Card.Text>
+          {props.obj?.namefirst} {props.obj?.namelast}
+        </Card.Text>
         <div className="d-flex">
           <Link to={"/doctor"}>
             <Button className="book">Booking</Button>
