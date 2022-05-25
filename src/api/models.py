@@ -22,13 +22,24 @@ class User(db.Model):
             # do not serialize the password, its a security breach
         }
 
+""""@unique
+class SpecialistField(str, Enum):
+    veterinario: str = 'Veterinario'
+    dentista: str = 'Dentista'
+    kinesiologo: str = 'Kinesiologo'
+    psicologo: str = 'Psicologo'
+    psiquiatra: str = 'Psiquiatra'
+    nutricionista: str = 'Nutricionista'"""
+    
+
 class Specialist(db.Model):
     specialist_id = db.Column(db.Integer, primary_key=True)
     comuna_id = db.Column(db.Integer, db.ForeignKey('comuna.comuna_id'))
+    specialist_mail = db.Column(db.String(120), unique=False)
     specialist_name = db.Column(db.String(120), unique=False)
     specialist_lastname = db.Column(db.String(120),unique=False)
-    "specialist_field = db.Column(db.String(120), unique=False)"
-    "specialist_field = Column(OrmEnum(SpecialistField), nullable=True)"
+    specialist_field = db.Column(db.String(120), unique=False)
+    "specialist_field = db.Column(OrmEnum(SpecialistField), nullable=True)"
     cost = db.Column(db.Integer, unique=False)
     address = db.Column(db.String(120), unique=False)
     descrpition = db.Column(db.String(250), unique=False)
@@ -38,9 +49,10 @@ class Specialist(db.Model):
         return  {
             "specialist_id": self.specialist_id,
             "comuna_id": self.comuna_id,
+            "specialist_mail": self.specialist_mail,
             "specialist_name": self.specialist_name,
             "specialist_lastname": self.specialist_lastname,
-            "specialist_field": self.special_field,
+            "specialist_field": self.specialist_field,
             "cost": self.cost,
             "address": self.address,
             "description": self.descrpition
@@ -125,13 +137,5 @@ class Reservation(db.Model):
             "reservation_type": self.reservation_type,
             "reservation_comment:": self.reservation_comment
         }
-"""
-@unique
-class SpecialistField(str, Enum):
-    veterinario: str = 'Veterinario'
-    dentista: str = 'Dentista'
-    kinesiologo: str = 'Kinesiologo'
-    psicologo: str = 'Psicologo'
-    psiquiatra: str = 'Psiquiatra'
-    nutricionista: str = 'Nutricionista'
-"""
+
+

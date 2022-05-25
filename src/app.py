@@ -11,6 +11,7 @@ from api.models import db, User, Specialist, Region, Comuna, Client, Schedule, R
 from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
+from logging import exception
 
 #from models import Person
 
@@ -63,7 +64,6 @@ def serve_any_other_file(path):
     response.cache_control.max_age = 0 # avoid cache memory
     return response
 
-
 @app.route('/specialist', methods = ['GET'])
 def getSpecialists():
     all_specialists = Specialist.query.all()
@@ -78,11 +78,44 @@ def getSpecialistID(people_id):
     else:
         return "Este especialista no existe, intenta nuevamente con otro"
 
-"""@app.route('/client', methods = ['POST'])
-def postClient():
-    all_Client = Client.query.all()
-    specialist_array = list(map(lambda x:x.serialize(), all_specialists))
-    return jsonify({"Specialists": specialist_array})"""
+
+@app.route('/addspecialist', methods=['POST'])
+def addSpecialist():
+    try:
+        #comuna_id = request.form["comuna_id"]  // #query.filter para traer nombre_comuna
+        specialist_mail = request.form["specialist_mail"] #nombre del elemento en front
+        specialist_name = request.form.get("specialist_name") #toma valor y si no existe lo deja como nulo
+        specialist_lastname = request.form["specialist_lastname"]
+        specialist_field =  request.form["specialist_field"]
+        cost = request.form["cost"]
+        address = request.form["address"]
+        description = request.form["description"]
+
+        specialist = Specialist(specialist_mail, specialist_name, specialist_lastname, specialist_field, int(cost), address, description)
+        db.session.add(specialist)
+        db.session.commit()
+
+        return jsonify(specialist.serialize()), 200
+
+    except Exception:
+        exception("\n[SERVER]: Error in route /addspecialist. Log: \n")
+        return jsonify({"msg": "Algo ha salido mal"}), 500
+
+
+@app.route("/api/searchspecialist", methods=["POST"])
+def searchSpecialistForm():
+    try:
+        specialist_name = request.form["specialist_name"] #agregar .form comuna y region
+
+        specialist = Specialist.query.filter(Specialist.name.like(f"%{nameStreamer}%")).all()
+        if not specialist:
+            return jsonify({"msg": "Este especialista no existe"}), 200
+        else:
+            return jsonify(specialist.serialize()), 200
+
+    except Exception:
+        exception("[SERVER]: Error in route /searchspecialist ->")
+        return jsonify({"msg": "Ha ocurrido un error"}), 500
 
 # this only runs if `$ python src/main.py` is executed
 if __name__ == '__main__':

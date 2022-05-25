@@ -30,3 +30,22 @@ def setup_commands(app):
         print("All test users created")
 
         ### Insert the code to populate others tables if needed
+    @app.cli.command("insert-test-specialists") # name of our command
+    @click.argument("count") # argument of out command
+    def insert_test__specialist_data(count):
+        print("Creating test specialists")
+        for x in range(1, int(count) + 1):
+            specialist = Specialist()
+            "specialist.comuna_id = 1" #tiene que existir, cargar datos
+            specialist.specialist_mail = "test_specialist" + str(x) + "@test.com"
+            specialist.specialist_name = "John" + str(x)
+            specialist.specialist_lastname = str(x) + "Doe"
+            specialist.cost = 19990
+            specialist.address = "calle real 123" 
+            specialist.desceription = "el mejor kine de la ciudad"
+            specialist.comuna = "chuchuncocity"
+            db.session.add(specialist)
+            db.session.commit()
+            print("Specialist: ", specialist.email, " created.")
+
+        print("All test specialists created")
