@@ -8,11 +8,13 @@ import Start from "../component/start";
 export const Doctor = () => {
   const [rating, setRating] = useState([]);
 
-  const saveRating = (start, mail, experiense) => {
+  const saveRating = (start, mail, experience) => {
+    console.log(rating, "STARTTT");
     const saveExperience = [
-      ...rating,
-      { valoracion: start, correo: mail, experiencia: experiense },
+      ...(rating || []),
+      { valoracion: start, correo: mail, experiencia: experience },
     ];
+    console.log("");
     localStorage.setItem("experiencias", JSON.stringify(saveExperience));
     setRating(saveExperience);
   };
