@@ -7,7 +7,8 @@ import "../../styles/start.css";
 export default function EvaluationModal({ saveRating }) {
   const [show, setShow] = useState(false);
   const [ranking, setRank] = useState(0);
-
+  const [mail, setMail] = useState("");
+  const [experiense, setExperiense] = useState("");
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -32,6 +33,9 @@ export default function EvaluationModal({ saveRating }) {
                 type="email"
                 placeholder="name@example.com"
                 autoFocus
+                onChange={(e) => {
+                  setMail(e.target.value);
+                }}
               />
             </Form.Group>
             <Form.Group
@@ -41,7 +45,13 @@ export default function EvaluationModal({ saveRating }) {
               <Form.Label>
                 Cuentanos sobre tu experiencia con el Medico...
               </Form.Label>
-              <Form.Control as="textarea" rows={3} />
+              <Form.Control
+                as="textarea"
+                rows={3}
+                onChange={(e) => {
+                  setExperiense(e.target.value);
+                }}
+              />
             </Form.Group>
           </Form>
         </Modal.Body>
@@ -52,7 +62,8 @@ export default function EvaluationModal({ saveRating }) {
           <Button
             variant="primary"
             onClick={() => {
-              saveRating(ranking);
+              saveRating(ranking, mail, experiense);
+
               handleClose();
             }}
           >
