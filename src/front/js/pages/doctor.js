@@ -55,7 +55,7 @@ export const Doctor = () => {
               <EvaluationModal saveRating={saveRating} />
               <div className="valoracion">
                 <div className="listExperience">
-                  {rating.map((e, i) => {
+                  {rating?.map((e, i) => {
                     let star = [];
                     for (i = 1; i <= e.valoracion; i++) {
                       star.push(

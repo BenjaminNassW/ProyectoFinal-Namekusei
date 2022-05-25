@@ -32,7 +32,6 @@ export const Booking = () => {
           e.preventDefault();
           actions.saveUser(dataForm);
           setPrueba(!prueba);
-          console.log(store.user);
         }}
       >
         <div className="col-md-6">
