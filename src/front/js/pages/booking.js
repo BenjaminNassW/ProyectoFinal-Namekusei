@@ -32,7 +32,6 @@ export const Booking = () => {
           e.preventDefault();
           actions.saveUser(dataForm);
           setPrueba(!prueba);
-          console.log(store.user);
         }}
       >
         <div className="col-md-6">
@@ -121,7 +120,7 @@ export const Booking = () => {
           </label>
           <DatePicker
             selected={dataForm.date}
-            onChange={(date) => setdataForm({ date: date })}
+            onChange={(date) => setdataForm({ ...dataForm, date: date })}
             showTimeSelect
             excludeTimes={[
               setHours(setMinutes(new Date(), 0), 17),
