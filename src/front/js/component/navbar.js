@@ -14,9 +14,7 @@ export const Navbar = () => {
             ></img>
           </span>
         </Link>
-        <Link to="/list">
-          <span>Busca un especialista</span>
-        </Link>
+
         <Link to="/info">
           <span>¿Que hacemos?</span>
         </Link>
