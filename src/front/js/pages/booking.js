@@ -64,7 +64,7 @@ export const Booking = () => {
             placeholder="Rojas"
           />
         </div>
-        <div className="col-12">
+        <div className="col-6">
           <label htmlFor="phone" className="form-label">
             Telefono
           </label>
@@ -77,6 +77,21 @@ export const Booking = () => {
             className="form-control"
             id="phone"
             placeholder="+569 98366xxxx"
+          />
+        </div>
+        <div className="col-6">
+          <label htmlFor="email" className="form-label">
+            Email
+          </label>
+          <input
+            onChange={(e) => {
+              onChange(e);
+            }}
+            name="email"
+            type="text"
+            className="form-control"
+            id="email"
+            placeholder="usuario@gmail.com"
           />
         </div>
         <div className="col-md-6">
@@ -146,18 +161,7 @@ export const Booking = () => {
             placeholder="Irarrazaval 1300, dpto 123"
           />
         </div>
-        <div className="col-12">
-          <div className="form-check">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              id="gridCheck"
-            />
-            <label className="form-check-label" htmlFor="gridCheck">
-              Check me out
-            </label>
-          </div>
-        </div>
+
         <div className="col-12">
           <button type="submit" className="btn btn-primary">
             Agendar

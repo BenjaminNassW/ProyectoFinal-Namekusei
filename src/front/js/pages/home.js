@@ -60,29 +60,16 @@ export const Home = () => {
             return <option key={i}>{filteredRegion} </option>;
           })}
       </select>
-      {name !== "" && (
+      {
         <div>
           <div className="cards">
-            <div className="title1">Kinesiologo</div>
-            <div className="d-flex doctor">
-              {store.doctor.map((obj, index) => {
-                if (obj.namefirst.toLowerCase().includes(name) && name !== "") {
-                  return <Cardoctor key={index} obj={obj}></Cardoctor>;
-                }
-              })}
-            </div>
-          </div>
-        </div>
-      )}
-      {expert !== "" && (
-        <div>
-          <div className="cards">
-            <div className="title1">Kinesiologo</div>
+            <div className="title1">Medicos</div>
             <div className="d-flex doctor">
               {store.doctor.map((obj, index) => {
                 if (
+                  obj.namefirst.toLowerCase().includes(name) &&
                   obj.namelast.toLowerCase().includes(expert) &&
-                  expert !== ""
+                  obj.city.toLowerCase().includes(comuna)
                 ) {
                   return <Cardoctor key={index} obj={obj}></Cardoctor>;
                 }
@@ -90,21 +77,8 @@ export const Home = () => {
             </div>
           </div>
         </div>
-      )}
-      {comuna !== "" && (
-        <div>
-          <div className="cards">
-            <div className="title1">Kinesiologo</div>
-            <div className="d-flex doctor">
-              {store.doctor.map((obj, index) => {
-                if (obj.city.toLowerCase().includes(comuna) && comuna !== "") {
-                  return <Cardoctor key={index} obj={obj}></Cardoctor>;
-                }
-              })}
-            </div>
-          </div>
-        </div>
-      )}
+      }
+
       {/* <div className="alert alert-info">
 				{store.message || "Loading message from the backend (make sure your python backend is running)..."}
 			</div> */}

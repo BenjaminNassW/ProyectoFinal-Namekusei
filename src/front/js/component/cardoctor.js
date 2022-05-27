@@ -15,7 +15,9 @@ export const Cardoctor = (props) => {
         <Card.Title>
           <h1 className="title"></h1>
         </Card.Title>
-        <Card.Text>Medico Especialista </Card.Text>
+
+        <Card.Text>Medico Especialista en {props.obj?.especialidad} </Card.Text>
+
         <Card.Text>
           {props.obj?.namefirst} {props.obj?.namelast}
         </Card.Text>
