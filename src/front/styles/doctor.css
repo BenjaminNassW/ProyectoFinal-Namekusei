@@ -57,7 +57,8 @@ body {
 .iconstar {
   width: 20px;
   height: 20px;
-  fill: "#f65788";
+  text-emphasis-color: blue;
+  margin: 10px;
 }
 .usuario {
   margin: 10px;

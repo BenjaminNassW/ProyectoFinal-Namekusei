@@ -1,9 +1,16 @@
 .App {
   font-family: sans-serif;
   text-align: center;
+  justify-content: center;
+  margin: 10px;
+  padding: 10px;
+  height: 50px;
+  display: flex;
 }
 .rating {
-  float: left;
+  margin: 20px;
+  text-align: center;
+  justify-content: center;
 }
 
 /* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
@@ -19,6 +26,7 @@
   float: right;
   width: 0.85em;
   padding: 0;
+
   overflow: hidden;
   white-space: nowrap;
   cursor: pointer;

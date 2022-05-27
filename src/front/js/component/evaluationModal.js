@@ -8,7 +8,8 @@ export default function EvaluationModal({ saveRating }) {
   const [show, setShow] = useState(false);
   const [ranking, setRank] = useState(0);
   const [mail, setMail] = useState("");
-  const [experiense, setExperiense] = useState("");
+  const [name, setName] = useState("");
+  const [experience, setExperiense] = useState("");
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -19,18 +20,36 @@ export default function EvaluationModal({ saveRating }) {
       </Button>
 
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Valora al expecialista</Modal.Title>
-        </Modal.Header>
-        <Start ranking={ranking} setRank={setRank} />
-        <Modal.Body>
-          <Form>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+        <Form
+          onSubmit={(e) => {
+            e.preventDefault(); //evita recargar la paghina despues de cargar
+
+            saveRating(ranking, mail, name, experience);
+
+            handleClose();
+          }}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Valora al expecialista</Modal.Title>
+          </Modal.Header>
+          <Start ranking={ranking} setRank={setRank} />
+          <Modal.Body>
+            <Form.Group className="p-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Nombre y Apellido</Form.Label>
+              <Form.Control
+                type="text"
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
+              />
               <Form.Label>
                 Ingresa el Correo con el que agendaste la hora
               </Form.Label>
               <Form.Control
                 type="email"
+                id="email"
+                size="30"
+                required
                 placeholder="name@example.com"
                 autoFocus
                 onChange={(e) => {
@@ -39,7 +58,7 @@ export default function EvaluationModal({ saveRating }) {
               />
             </Form.Group>
             <Form.Group
-              className="mb-3"
+              className="p-3"
               controlId="exampleForm.ControlTextarea1"
             >
               <Form.Label>
@@ -53,23 +72,24 @@ export default function EvaluationModal({ saveRating }) {
                 }}
               />
             </Form.Group>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Cancelar
-          </Button>
-          <Button
-            variant="primary"
-            onClick={() => {
-              saveRating(ranking, mail, experiense);
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Cancelar
+            </Button>
+            <Button
+              type="submit"
+              variant="primary"
+              // onClick={() => {
+              //   saveRating(ranking, mail, experiense);
 
-              handleClose();
-            }}
-          >
-            Guardar Valoración
-          </Button>
-        </Modal.Footer>
+              //   handleClose();
+              // }}
+            >
+              Guardar Valoración
+            </Button>
+          </Modal.Footer>
+        </Form>
       </Modal>
     </>
   );

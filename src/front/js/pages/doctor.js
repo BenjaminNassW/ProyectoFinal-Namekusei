@@ -1,30 +1,39 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import "../../styles/doctor.css";
+import { Context } from "../store/appContext";
 
 import EvaluationModal from "../component/evaluationModal";
 import Start from "../component/start";
 
 export const Doctor = () => {
   const [rating, setRating] = useState([]);
-
-  const saveRating = (start, mail, experience) => {
+  const [doctores, setDoctores] = useState([]);
+  let { id } = useParams();
+  const { store, actions } = useContext(Context);
+  const saveRating = (start, mail, name, experience) => {
     console.log(rating, "STARTTT");
     const saveExperience = [
       ...(rating || []),
-      { valoracion: start, correo: mail, experiencia: experience },
+      {
+        valoracion: start,
+        nombre: name,
+        correo: mail,
+        experiencia: experience,
+      },
     ];
-    console.log("");
     localStorage.setItem("experiencias", JSON.stringify(saveExperience));
     setRating(saveExperience);
   };
-  const traerExperiencia = () => {
-    const getExperience = JSON.parse(localStorage.getItem("experiencias"));
-    setRating(getExperience);
-  };
 
   useEffect(() => {
-    traerExperiencia();
+    const getExperience = JSON.parse(localStorage.getItem("experiencias"));
+    setRating(getExperience);
+    const doctores = store.doctor.find((e) => {
+      return id === e.id;
+    });
+    setDoctores(doctores);
+    console.log(doctores);
   }, []);
 
   return (
@@ -44,10 +53,18 @@ export const Doctor = () => {
             ></img>
 
             <div className="ui-review-view__rating__summary__rating">
-              <h2>Maria Silva</h2>
-              <h4>Especialista Veterinaria</h4>
-              <div>Valor consulta</div>
-              <div>Atención presencial en Comuna, Region</div>
+              <h2>
+                {doctores.namefirst} {doctores.namelast}
+              </h2>
+              <h4>Especialista Oftalmologo</h4>
+
+              <div>
+                Valor consulta ${" "}
+                {doctores.money?.substring(0, doctores.money?.indexOf("."))}
+              </div>
+              <div>
+                Atención presencial en La Cisterna, Region Metropolitana
+              </div>
               <Link to="/booking">
                 <button className="btn btn-primary me-1 m-2">
                   Reserva tu hora
@@ -74,8 +91,13 @@ export const Doctor = () => {
                     return (
                       <div className="usuario">
                         <p>{e.experiencia}</p>
-                        <h4>{e.correo}</h4>
-                        <h5>{star}</h5>
+                        <h4>{e.nombre}</h4>
+                        <h5
+                          className="
+                        star"
+                        >
+                          {star}
+                        </h5>
                       </div>
                     );
                   })}

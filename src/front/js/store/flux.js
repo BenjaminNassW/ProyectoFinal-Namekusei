@@ -440,6 +440,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           age: "36",
           money: "$24168.9",
           city: "Louisville",
+          id: "1",
         },
         {
           namefirst: "Zachary",
@@ -448,6 +449,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           age: "35",
           money: "$58864.43",
           city: "Gainesville",
+          id: "2",
         },
         {
           namefirst: "Jerry",
@@ -456,6 +458,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           age: "87",
           money: "$62066.98",
           city: "Abilene",
+          id: "3",
         },
         {
           namefirst: "Lawerence",
@@ -464,6 +467,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           age: "86",
           money: "$91957.87",
           city: "Corpus Christi",
+          id: "4",
         },
         {
           namefirst: "Marquis",
@@ -472,6 +476,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           age: "50",
           money: "$50295.52",
           city: "Oxnard",
+          id: "5",
         },
         {
           namefirst: "Keven",
@@ -480,6 +485,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           age: "11",
           money: "$89178.9",
           city: "Antioch",
+          id: "6",
         },
         {
           namefirst: "Mauricio",
@@ -488,6 +494,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           age: "51",
           money: "$18866.25",
           city: "Tucson",
+          id: "7",
         },
         {
           namefirst: "Jules",
@@ -496,6 +503,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           age: "13",
           money: "$69676.61",
           city: "Stamford",
+          id: "8",
         },
         {
           namefirst: "Brandon",
@@ -504,6 +512,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           age: "91",
           money: "$54116.41",
           city: "tiltil",
+          id: "9",
         },
         {
           namefirst: "Corey",
@@ -512,6 +521,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           age: "56",
           money: "$63244.84",
           city: "Gresham",
+          id: "10",
         },
       ],
     },

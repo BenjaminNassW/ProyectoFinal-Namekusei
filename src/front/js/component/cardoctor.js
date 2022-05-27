@@ -13,14 +13,14 @@ export const Cardoctor = (props) => {
       />
       <Card.Body>
         <Card.Title>
-          <h1 className="title">Especialidad</h1>
+          <h1 className="title"></h1>
         </Card.Title>
-        <Card.Text>Medico Especialista en kkkkkk </Card.Text>
+        <Card.Text>Medico Especialista </Card.Text>
         <Card.Text>
           {props.obj?.namefirst} {props.obj?.namelast}
         </Card.Text>
         <div className="d-flex">
-          <Link to={"/doctor"}>
+          <Link to={"/doctor/" + props.obj?.id}>
             <Button className="book">Booking</Button>
           </Link>
         </div>
