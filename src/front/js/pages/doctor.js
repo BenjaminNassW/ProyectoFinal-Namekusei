@@ -29,12 +29,6 @@ export const Doctor = () => {
 
   return (
     <div>
-      <div className="text-center m-5 ">
-        <input placeholder="Especialista" className="me-1"></input>
-        <input placeholder="Region" className="me-1"></input>
-        <input placeholder="Comuna" className="me-1"></input>
-        <button className="btn-primary">Buscar</button>
-      </div>
       <div className="profile container">
         <div className="row">
           <div className="description col-lg-5 col-sm-11 ">

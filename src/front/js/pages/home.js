@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import { Link } from "react-router-dom";
 import { Cardoctor } from "../component/cardoctor";
+import App from "../component/sendemail";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);

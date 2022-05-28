@@ -6,6 +6,7 @@ import setHours from "date-fns/setHours";
 import setMinutes from "date-fns/setMinutes";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-datepicker/dist/react-datepicker-cssmodules.css";
+import { send } from "emailjs-com";
 
 export const Booking = () => {
   const { store, actions } = useContext(Context);
@@ -22,6 +23,18 @@ export const Booking = () => {
   useEffect(() => {
     console.log(store.user);
   }, [prueba]);
+
+  const [toSend, setToSend] = useState({
+    from_name: "",
+    to_name: "",
+    message: "",
+    reply_to: "",
+  });
+
+  const handleChange = (e) => {
+    setToSend({ ...toSend, [e.target.name]: e.target.value });
+  };
+
   return (
     <div className="container">
       <h1>Datos Personales</h1>
@@ -32,6 +45,18 @@ export const Booking = () => {
           e.preventDefault();
           actions.saveUser(dataForm);
           setPrueba(!prueba);
+          send(
+            "service_2orrfoo",
+            "template_wk7phvr",
+            toSend,
+            "hpQzpSnB31E6JQvrA"
+          )
+            .then((response) => {
+              console.log("SUCCESS!", response.status, response.text);
+            })
+            .catch((err) => {
+              console.log("FAILED...", err);
+            });
         }}
       >
         <div className="col-md-6">
@@ -41,11 +66,12 @@ export const Booking = () => {
           <input
             onChange={(e) => {
               onChange(e);
+              setToSend({ ...toSend, [e.target.name]: e.target.value });
             }}
-            name="name"
+            name="from_name"
             type="text"
+            value={toSend.from_name}
             className="form-control"
-            id="inputEmail4"
             placeholder="Benjamin"
           />
         </div>
@@ -56,12 +82,14 @@ export const Booking = () => {
           <input
             onChange={(e) => {
               onChange(e);
+              setToSend({ ...toSend, [e.target.name]: e.target.value });
             }}
-            name="lastname"
+            name="to_name"
             type="text"
             className="form-control"
             id="inputPassword4"
             placeholder="Rojas"
+            value={toSend.to_name}
           />
         </div>
         <div className="col-6">
@@ -71,11 +99,12 @@ export const Booking = () => {
           <input
             onChange={(e) => {
               onChange(e);
+              setToSend({ ...toSend, [e.target.name]: e.target.value });
             }}
-            name="telefono"
+            name="message"
+            value={toSend.message}
             type="text"
             className="form-control"
-            id="phone"
             placeholder="+569 98366xxxx"
           />
         </div>
@@ -86,9 +115,11 @@ export const Booking = () => {
           <input
             onChange={(e) => {
               onChange(e);
+              setToSend({ ...toSend, [e.target.name]: e.target.value });
             }}
-            name="email"
+            name="reply_to"
             type="text"
+            value={toSend.reply_to}
             className="form-control"
             id="email"
             placeholder="usuario@gmail.com"

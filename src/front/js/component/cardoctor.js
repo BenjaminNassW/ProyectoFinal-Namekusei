@@ -21,7 +21,7 @@ export const Cardoctor = (props) => {
         </Card.Text>
         <div className="d-flex">
           <Link to={"/doctor"}>
-            <Button className="book">Booking</Button>
+            <Button className="book">Agenda tu hora</Button>
           </Link>
         </div>
       </Card.Body>
