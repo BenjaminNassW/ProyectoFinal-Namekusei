@@ -8,10 +8,10 @@ export const Signup = () => {
   return (
     <div className="container col-4">
       <form>
-        <h1 className="mt-5">Sign Up</h1>
+        <h1 className="mt-5">Crear Cuenta</h1>
         <div className="mb-3">
           <label for="exampleInputEmail1" className="form-label">
-            Email address
+            Correo Electronico
           </label>
           <input
             type="email"
@@ -25,7 +25,7 @@ export const Signup = () => {
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" className="form-label">
-            Password
+            Contraseña
           </label>
           <input
             type="password"
@@ -40,11 +40,11 @@ export const Signup = () => {
             id="exampleCheck1"
           />
           <label className="form-check-label" for="exampleCheck1">
-            Check me out
+            Guardar
           </label>
         </div>
         <button type="submit" className="btn btn-primary">
-          Submit
+          Crear
         </button>
       </form>
     </div>

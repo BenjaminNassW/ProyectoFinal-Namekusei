@@ -3,29 +3,30 @@
   margin-left: 100px;
   margin-right: 100px;
   overflow-x: scroll;
-  background-color: rgba(0, 174, 255, 0.524);
-  border: 2px solid rgba(0, 0, 0, 0.351);
+  background-color: rgba(0, 174, 255, 0);
+  border: 2px solid rgba(0, 0, 0, 0.014);
   border-radius: 10px;
   margin: 30px;
-
-  height: 390px;
+  height: 450px;
 }
 .card {
   min-width: 20rem;
-  scrollbar-color: red blue;
+  scrollbar-color: red rgba(0, 0, 255, 0);
   border: 1px solid;
   width: 300px;
-  box-shadow: 5px 5px 8px 5px #1e1d1d7f;
+  box-shadow: 5px 5px 8px 5px #1e1d1d00;
 }
 .cardoctor1 {
   height: 330px;
+  background-color: rgba(15, 172, 120, 0.719);
   margin: 10px;
 }
 .imgcard {
   height: 180px;
 }
 .book {
-  margin: none;
+  justify-content: center;
+  align-items: center;
 }
 .title {
   color: rgba(0, 0, 0, 0.458);
@@ -34,4 +35,7 @@
 .card-text {
   margin: 0%;
   padding: 2px;
+}
+p {
+  border-color: black;
 }

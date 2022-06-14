@@ -23,7 +23,7 @@ export const Booking = () => {
     console.log(store.user);
   }, [prueba]);
   return (
-    <div className="container">
+    <div className="container buscador">
       <h1>Datos Personales</h1>
 
       <form

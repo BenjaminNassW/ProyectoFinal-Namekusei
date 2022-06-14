@@ -1,13 +1,15 @@
 .img {
   height: 220px;
   width: 220px;
-  border: 1px solid rgba(77, 147, 233, 0.29);
+  background-color: rgba(17, 202, 140, 0.759);
+
   border-radius: 10px;
 }
 .description {
   margin: 5px;
   padding: 10px;
-  background-color: azure;
+  background-color: rgba(15, 172, 120, 0.719);
+
   text-align: center;
   border-radius: 20px;
   justify-content: center;
@@ -21,7 +23,8 @@
 .experiencia {
   margin: 5px;
   padding: 10px;
-  background-color: azure;
+  background-color: rgba(15, 172, 120, 0.719);
+
   border-radius: 20px;
 }
 h5 {
@@ -34,6 +37,7 @@ p {
   padding: 15px;
   margin: 20px;
   text-align: center;
+  color: black;
 }
 .iconos {
   margin: 5px;

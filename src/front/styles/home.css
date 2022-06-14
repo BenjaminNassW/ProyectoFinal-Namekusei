@@ -1,3 +1,21 @@
+.foto {
+  height: 430px;
+  margin-left: 20px;
+}
+.info {
+  padding-top: 50px;
+}
+p {
+  line-height: 200%;
+  font-family: "Segoe IU", sans-serif;
+  font-size: 110%;
+  font-style: oblique;
+  color: rgb(255, 255, 255);
+}
+body {
+  background-color: rgba(17, 202, 140, 0.759);
+}
+
 /*
     home.css: This website contains selectors only used in home.css
 

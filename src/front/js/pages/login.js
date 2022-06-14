@@ -7,13 +7,13 @@ export const Login = () => {
 
   return (
     <div className="mx-auto mt-5 d-flex flex-column w-25">
-      <h1 className="mb-5">Login</h1>
-      <p className="m-0">E-mail</p>
+      <h1 className="mb-3">Iniciar Sesión</h1>
+      <p className="m-0">Correo Electronico</p>
       <input placeholder="" className=""></input>
-      <p className="m-0">Password</p>
+      <p className="m-0">Contraseña</p>
       <input placeholder="" className="mb-4"></input>
 
-      <button className="btn-primary">Login</button>
+      <button className="btn-primary">Ingresar</button>
     </div>
   );
 };

@@ -21,9 +21,9 @@ export const Cardoctor = (props) => {
         <Card.Text>
           {props.obj?.namefirst} {props.obj?.namelast}
         </Card.Text>
-        <div className="d-flex">
+        <div className="doctor1">
           <Link to={"/doctor/" + props.obj?.id}>
-            <Button className="book">Booking</Button>
+            <Button className="book">Leer más</Button>
           </Link>
         </div>
       </Card.Body>

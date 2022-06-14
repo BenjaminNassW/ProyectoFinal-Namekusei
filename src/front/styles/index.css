@@ -1,6 +1,11 @@
 .logo {
   height: 50px;
   width: 50px;
-} /* 
-    General Styles used on every website (Don't Repeat Yourself)
-*/
+}
+.logo2 {
+  height: 50px;
+  width: 200px;
+}
+.fondo {
+  background-color: rgba(15, 172, 120, 0.719);
+}
