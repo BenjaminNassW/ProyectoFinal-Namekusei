@@ -5,9 +5,11 @@ import { Context } from "../store/appContext";
 
 import EvaluationModal from "../component/evaluationModal";
 import Start from "../component/start";
+import PhotosDoctor from "../component/photosdoctor";
 
 export const Doctor = () => {
   const [rating, setRating] = useState([]);
+  const [photos, setPhotos] = useState([]);
   const [doctores, setDoctores] = useState([]);
   let { id } = useParams();
   const { store, actions } = useContext(Context);
@@ -36,22 +38,24 @@ export const Doctor = () => {
     console.log(doctores);
   }, []);
 
+  useEffect((e) => {
+    setPhotos = PhotosDoctor;
+
+    console.log(photos);
+  });
+
   return (
     <div>
       <div className="text-center m-5 ">
         <input placeholder="Especialista" className="me-1"></input>
         <input placeholder="Region" className="me-1"></input>
         <input placeholder="Comuna" className="me-1"></input>
-        <button className="btn-primary">Buscar</button>
+        <button className="btn btn-secondary">Buscar</button>
       </div>
       <div className="profile container">
         <div className="row">
           <div className="description col-lg-5 col-sm-11 ">
-            <img
-              className="img"
-              src="https://i.pinimg.com/474x/9a/c3/73/9ac3737b869483f4e682712dc5d3c313--hospitals-doctors.jpg"
-            ></img>
-
+            {photos}
             <div className="ui-review-view__rating__summary__rating">
               <h2>
                 {doctores.namefirst} {doctores.namelast}
@@ -66,7 +70,7 @@ export const Doctor = () => {
                 Atención presencial en La Cisterna, Region Metropolitana
               </div>
               <Link to="/booking">
-                <button className="btn btn-primary me-1 m-2">
+                <button className="btn btn-success me-1 m-2">
                   Reserva tu hora
                 </button>
               </Link>
@@ -91,13 +95,13 @@ export const Doctor = () => {
                     return (
                       <div className="usuario">
                         <p>{e.experiencia}</p>
-                        <h4>{e.nombre}</h4>
                         <h5
                           className="
                         star"
                         >
                           {star}
                         </h5>
+                        <h4>{e.nombre}</h4>
                       </div>
                     );
                   })}

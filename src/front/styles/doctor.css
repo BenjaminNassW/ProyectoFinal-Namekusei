@@ -55,7 +55,7 @@ body {
 }
 .valoracion {
   padding: 10px;
-  height: 300px;
+  height: 500px;
 }
 
 .iconstar {
@@ -71,5 +71,9 @@ body {
 }
 .listExperience {
   overflow-y: scroll;
-  height: 300px;
+  height: 500px;
+}
+.usuario {
+  background-color: white;
+  border-radius: 8%;
 }

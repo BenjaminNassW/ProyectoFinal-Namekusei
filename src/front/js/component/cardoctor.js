@@ -23,7 +23,12 @@ export const Cardoctor = (props) => {
         </Card.Text>
         <div className="doctor1">
           <Link to={"/doctor/" + props.obj?.id}>
-            <Button className="book">Leer más</Button>
+            <button
+              className="book btn btn-success
+            "
+            >
+              Leer más
+            </button>
           </Link>
         </div>
       </Card.Body>

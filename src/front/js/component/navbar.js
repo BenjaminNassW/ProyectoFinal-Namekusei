@@ -5,7 +5,7 @@ import "../../styles/index.css";
 
 export const Navbar = () => {
   return (
-    <nav className="navbar navbar-light bg-light fondo">
+    <nav className="navbar navbar-light bg-light fondoconlogo">
       <div className="container">
         <Link to="/">
           <span className="navbar-brand mb-0 h1">
@@ -17,18 +17,20 @@ export const Navbar = () => {
         </Link>
 
         <Link to="/info">
-          <button className="btn btn-primary">Sobre Nosotros</button>
+          <button className="btn btn-outline-success">Sobre Nosotros</button>
         </Link>
         <div className="ml-auto">
           <Link to="/login">
-            <button className="btn btn-primary me-1">Inicia sesion</button>
+            <button className="btn btn-outline-success me-1">
+              Inicia sesion
+            </button>
           </Link>
           <Link to="/signup">
-            <button className="btn btn-primary me-1">Registrar</button>
+            <button className="btn btn-outline-success me-1">Registrar</button>
           </Link>
-          <Link to="/profile">
-            <button className="btn btn-primary">Perfil</button>
-          </Link>
+          {/* <Link to="/profile">
+            <button className="btn btn-outline-success">Perfil</button>
+          </Link> */}
         </div>
       </div>
     </nav>

@@ -12,8 +12,8 @@ p {
   font-style: oblique;
   color: rgb(255, 255, 255);
 }
-body {
-  background-color: rgba(17, 202, 140, 0.759);
+.fondo {
+  background-color: rgba(35, 177, 123, 0.997);
 }
 
 /*

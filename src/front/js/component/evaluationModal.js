@@ -15,9 +15,13 @@ export default function EvaluationModal({ saveRating }) {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <button
+        className="btn btn-success"
+        variant="primary"
+        onClick={handleShow}
+      >
         Evalua tu atención
-      </Button>
+      </button>
 
       <Modal show={show} onHide={handleClose}>
         <Form
@@ -79,7 +83,7 @@ export default function EvaluationModal({ saveRating }) {
             </Button>
             <Button
               type="submit"
-              variant="primary"
+              variant="btn btn-outline-success"
               // onClick={() => {
               //   saveRating(ranking, mail, experiense);
 
