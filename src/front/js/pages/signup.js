@@ -1,14 +1,18 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
+import ReactDOM from "react-dom";
+import { GoogleLogin, GoogleLogout } from "react-google-login";
+import { Button } from "react-bootstrap";
 
 export const Signup = () => {
   const { store, actions } = useContext(Context);
+  const responseGoogle = (response) => {};
 
   return (
     <div className="container col-4">
       <form method="post" action="{{ url_for('signup') }}">
-        <h1 className="mt-5">Crear Cuenta</h1>
+        <h1 className="mt-2 text-center">Crear Cuenta</h1>
         <div className="mb-3">
           <label for="exampleInputEmail1" className="form-label">
             Correo Electronico
@@ -45,9 +49,16 @@ export const Signup = () => {
             Guardar
           </label>
         </div>
-        <button type="submit" className="btn btn-primary">
-          Crear
-        </button>
+        <Button className="btn-success m-1 text-center">Crear Cuenta</Button>
+
+        <GoogleLogin
+          className="m-1"
+          clientId="168338559656-ic0itsdjcsmq4ltaiu302ueeqal6ulth.apps.googleusercontent.com"
+          buttonText="Crear cuenta con Google"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+          cookiePolicy={"single_host_origin"}
+        />
       </form>
     </div>
   );

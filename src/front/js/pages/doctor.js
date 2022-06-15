@@ -23,13 +23,13 @@ export const Doctor = () => {
         experiencia: experience,
       },
     ];
-    localStorage.setItem("experiencias", JSON.stringify(saveExperience));
+    localStorage.setItem(id, JSON.stringify(saveExperience));
     setRating(saveExperience);
   };
-
   useEffect(() => {
-    const getExperience = JSON.parse(localStorage.getItem("experiencias"));
+    const getExperience = JSON.parse(localStorage.getItem(id));
     setRating(getExperience);
+
     const doctores = store.doctor.find((e) => {
       return id === e.id;
     });
@@ -68,7 +68,7 @@ export const Doctor = () => {
               <h2>
                 {doctores.namefirst} {doctores.namelast}
               </h2>
-              <h4>Especialista Oftalmologo</h4>
+              <h4>Medico Especialista en {doctores.specialist}</h4>
 
               <div>
                 Valor consulta
@@ -78,7 +78,8 @@ export const Doctor = () => {
                 </h4>
               </div>
               <div>
-                Atención presencial en La Cisterna, Region Metropolitana
+                Atención presencial en <strong>{doctores.comuna}</strong> Region
+                Metropolitana
               </div>
               <Link to="/booking">
                 <button className="btn btn-success me-1 m-2">
@@ -130,13 +131,7 @@ export const Doctor = () => {
               ></img>
               Sobre mí
             </h5>
-            <p>
-              Centro Oftamológico Dr. Patricio Gómez Toledo Brindamos atención a
-              recién nacidos, adultos y urgencias con Servicios de Oculista,
-              Receta de Lentes Computarizada, Microcirugía, Cirugía de Catarata,
-              Glaucoma, Cirugía Refractiva, Especialista en Retina,
-              Desprendimiento de Retina, Retinopatía Diabética, Trombosis.
-            </p>
+            <p>{doctores.sobremi}</p>
             <h5>
               <img
                 src="https://cdn-icons-png.flaticon.com/512/2793/2793594.png"
@@ -144,10 +139,7 @@ export const Doctor = () => {
               ></img>
               Especialista en:
             </h5>
-            <p>
-              - Retina Quirúrgica - Retina Médica - Cirugía Refractiva -
-              Catarata
-            </p>
+            <p>{doctores.especialistaen}</p>
             <h5>
               <img
                 src="https://cdn-icons-png.flaticon.com/512/2464/2464568.png"
@@ -155,11 +147,7 @@ export const Doctor = () => {
               ></img>
               Enfermemades tratadas
             </h5>
-            <p>
-              - Miopía - Cataratas - Astigmatismo - Presbicia - Hipermetropía -
-              Glaucoma - Conjuntivitis - Infecciones de los ojos - Enfermedades
-              de los ojos - Errores de refracción - Enfermedades de la retina
-            </p>
+            <p>{doctores.enfermedades}</p>
             <h5>
               <img
                 src="https://cdn-icons-png.flaticon.com/512/943/943398.png"
@@ -167,7 +155,7 @@ export const Doctor = () => {
               ></img>
               Formación
             </h5>
-            <p>Medico Cirujano Oftalmologo, Universidad Valparaiso, 1996</p>
+            <p>{doctores.formacion}</p>
           </div>
         </div>
       </div>

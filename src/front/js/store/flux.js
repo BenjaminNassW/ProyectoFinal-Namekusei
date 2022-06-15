@@ -3,6 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       message: null,
       user: [],
+      userlogin: {},
       regiones: [
         {
           NombreRegion: "Arica y Parinacota",
@@ -441,6 +442,14 @@ const getState = ({ getStore, getActions, setStore }) => {
           money: "$24168.9",
           city: "Louisville",
           id: "IXSgwfBGnCg",
+          specialist: "Oftalmologia",
+          sobremi:
+            "27 años en oftalmologia clínica,distinción máxima al egreso de la beca de especialidad. Formación de pre y postgrado en Universidad de Chile. Experiencia anterior 6 años en la dirección de hospitales nacionales. Logros académicos previos mejor puntaje en pruebas de ingreso a Universidad, a nivel nacional.",
+          especialistaen:
+            "Tecnología Médica,          Retina Médica,          Oftalmología Pediátrica",
+          enfermedades: "Miopía,          Cataratas,          Astigmatismo",
+          formacion: "Especialista en oftalmología, Universidad de Chile",
+          comuna: "Vicuña Mackenna Oriente, 6969. Piso 12. Of 10, La reina",
         },
         {
           namefirst: "Zachary",
@@ -450,15 +459,32 @@ const getState = ({ getStore, getActions, setStore }) => {
           money: "$58864.43",
           city: "Gainesville",
           id: "gkZ-k3xf25w",
+          specialist: "Ginecólogia Obstetra  ",
+          sobremi:
+            "Atención y cuidado a la salud integral de la mujer y su sistema reproductor, con habilidad para la comunicación con las pacientes de manera responsable y profesional. Actitud crítica, reflexiva, responsable y disciplinada con calidez en el desempeño de la profesión, con valores de honestidad, respeto, confianza y mejoramiento continuo. Médico Gineco-Obstetra con razonamiento clínico de diagnóstico y cuarenta (40) años de experiencia.",
+          especialistaen: "Obstetrícia,          Medicina Materno Fetal",
+          enfermedades: "Embarazo,          Miomas,          Menopausia",
+          formacion: "Universidad de Los Andes (1972-1979)",
+          comuna:
+            "Paseo Presidente Federico Errázuriz Echaurren 2631 Oficina 24 Providencia,",
         },
         {
           namefirst: "Jerry",
           namelast: "Kickliter",
           email: "afflictionBelgiums@ripostedmisconstrued.com",
-          age: "87",
+          age: "37",
           money: "$62066.98",
           city: "Abilene",
           id: "LAwsF-VnFzc",
+          specialist: "Cirugía Dermatológica",
+          sobremi:
+            "Dermatología y Venereología en niños y adultos, Cirugía de piel, daños por el acné, alergias e inflamación de la piel, Dermatoscopía de lesiones ultra pigmentadas, lunares, cancer a la piel",
+          especialistaen: "Cirugía Dermatológica,          Teledermatología",
+          enfermedades:
+            "Acné,          Quiste epidermoide,          Cáncer de piel",
+          formacion:
+            "Medicina, Universidad de los Andes (1993-1999),          Dermatologo, Hospital San Juan de Dios (2001 - 2012)",
+          comuna: "Huerfanos 555 piso 3, Santiago",
         },
         {
           namefirst: "Lawerence",
@@ -468,6 +494,15 @@ const getState = ({ getStore, getActions, setStore }) => {
           money: "$91957.87",
           city: "Corpus Christi",
           id: "TFJw-mTWw_U",
+          specialist: "Psiquiatría en Adolescentes y Adultos",
+          sobremi:
+            "Soy una Doctora con vasta experiencia en psiquiatria en el campo de la psiquiatria adultos, preocupandome de estar al dia constantemente por lo que año a año he realizado diferentes diplomados y cursos. Me caracterizo por ser muy cercana a mis pacientes, estando en contacto con ellos 24/7 si es necesario.",
+          especialistaen: "Psiquiatría en Adolescentes y Adultos",
+          enfermedades:
+            "Crisis de pánico,          Trastornos del ánimo,          Depresión",
+          formacion:
+            "Universidad del Desarrollo,          Hospital del Salvador Santiago, Psiquiatria Adultos",
+          comuna: "Padre Mariano, 391, oficina 503, Providencia",
         },
         {
           namefirst: "Marquis",
@@ -477,6 +512,14 @@ const getState = ({ getStore, getActions, setStore }) => {
           money: "$50295.52",
           city: "Oxnard",
           id: "OhKElOkQ3RE",
+          specialist: "Psicologia Infanto Juvenil",
+          sobremi:
+            "Mi nombre es Martín Duralde, psicólogo clínico egresado de la Universidad Andrés Bello, y mi mayor motivación en el campo clínico de la salud mental es primeramente acompañar a mis pacientes sobre aquello que necesiten expresar, brindando un espacio seguro y de confianza en donde se pueda poner en palabras eso que aqueja y muchas veces duele.",
+          especialistaen: " Trastornos del ánimo Infanto juvenil ",
+          enfermedades:
+            "Estrés,          Trastornos del ánimo,          Angustia",
+          formacion: "Universidad Andrés Bello - Psicología Clínica (Santiago)",
+          comuna: "La Concepción 56 Oficina 403, Santiago",
         },
         {
           namefirst: "Keven",
@@ -486,6 +529,14 @@ const getState = ({ getStore, getActions, setStore }) => {
           money: "$89178.9",
           city: "Antioch",
           id: "kooSjlL8LnQ",
+          specialist: "Neurologia",
+          sobremi:
+            "Soy padre, esposo y Neurólogo de adultos. Tengo amplia experiencia en neurología general y actualmente curso mi subespecialidad en medicina del sueño(Clínica SOMNO). Cuento con dos diplomados en neuropsiquiatría(PUC/UCh),",
+          especialistaen: "Medicina del Sueño, Epilepsia, Neurología Adultos",
+          enfermedades: "Epilepsia,  Demencia,   Migraña",
+          formacion:
+            "Médico Cirujano, Universidad Mayor, Santiago 2010,          Neurólogo Adultos, Universidad Mayor, Santiago 2015",
+          comuna: "Asturias, Las Condes, Santiago",
         },
         {
           namefirst: "Mauricio",
@@ -495,24 +546,51 @@ const getState = ({ getStore, getActions, setStore }) => {
           money: "$18866.25",
           city: "Tucson",
           id: "DPEPYPBZpB8",
+          specialist: "Kinesiología",
+          sobremi:
+            "Soy kinesiólogo egresado el 2010 con distinción. He trabajado profesionalmente como kinesiólogo durante 10 años. Me desempeño principalmente en patologías musculoesqueléticas, en el cual he seguido mi educación de post grado. Intento informar de la mejor forma posible a cada paciente sobre la naturaleza de su lesión en términos que pueda comprender, las opciones de tratamiento disponibles y el tiempo de recuperación aproximado de su rehabilitación.",
+          especialistaen:
+            "Kinesiología en Traumatología,          Terapia Manual Ortopédica",
+          enfermedades:
+            "Desgarro muscular,          Cefalea tensional,          Bursitis",
+          formacion: "Kinesiólogo, Universidad del Mar, 2010",
+          comuna: "Larraín Alcalde N° 1146, Segundo piso., La florida",
         },
         {
           namefirst: "Jules",
           namelast: "Koscher",
           email: "crusadeintroducingflagstaffs@platoons.com",
           age: "13",
-          money: "$69676.61",
+          money: "$39676.61",
           city: "Stamford",
           id: "8hHxO3iYuU0",
+          specialist: "Pediatra, Médico general",
+          sobremi:
+            "SOY PEDIATRA DE AMPLIA EXPERIENCIA.CON MÁS DE 32 AÑOS TRABAJANDO CON NIÑOS,DESDE EL PERÍODO DE RECIÉN NACIDO HASTA SU ADOLESCENCIA. REALICÉ MIS ESTUDIOS DE MEDICINA EN LA UNIVERSIDAD DE CHILE. POSTGRADO DE PEDIATRIA EN LA UNIVERSIDAD DE VALPARAÍSO. RESIDENCIA DURANTE AÑOS EN HOSPITAL ROBERTO DEL RÍO.",
+          especialistaen: "Neonatología, Pediatría Ambulatoria",
+          enfermedades: "Infección urinaria en niño, Resfrío, Tos",
+          formacion:
+            "MEDICO CIRUJANO,UNIVERSIDAD DE CHILE, FACULTAD DE MEDICINA.1986.",
+          comuna: " Alto las Condes, Av Kenneddy, 9001, Las Condes",
         },
         {
           namefirst: "America",
           namelast: "Lipsey",
           email: "believingentered@hydrogenates.me",
-          age: "91",
+          age: "41",
           money: "$54116.41",
           city: "tiltil",
           id: "p3ioCes9DfA",
+          specialist: "Psicología Infanto Juvenil",
+          sobremi:
+            "Somos un equipo de psicólogos clínicos pertenecientes al centro psicológico The Living Room Therapyn Psicóloga Clínica, especialista en psicoterapia sistémica e Hipnosis. Atención de familias, parejas, jóvenes , niños y adultos. Diplomada en mediación Familiar, y Posgrado en psicología Jurídica en Familia e infancia en Magister en psicoterapia sistemica Con experiencia en atención Primaria, centros médicos y organizaciones y consulta particular",
+          especialistaen:
+            "Psicología Clínica, Psicología Infanto Juvenil, Psicología Clínica de Adultos,Terapia Familiar",
+          enfermedades:
+            "Violencia intrafamiliar, Estrés, Bulimia, Fobias, Trastorno de control de impulsos, Esquizofrenia, Alcoholismo, Duelos Patológicos, Depresión, Trastornos de ansiedad, Angustia, Problemas de autoestima",
+          formacion:
+            "Licenciada en psicología, Universidad Las Américas, 2011, Psicóloga Especialista en Psicoterapia Familiar de Pareja e individuo, Mediación Familiar, 2017",
+          comuna: "Diagonal paraguay 481 Oficina 115, Santiago",
         },
         {
           namefirst: "Corey",
@@ -522,6 +600,12 @@ const getState = ({ getStore, getActions, setStore }) => {
           money: "$63244.84",
           city: "Gresham",
           id: "mEZ3PoFGs_k",
+          specialist: "Terapeuta ocupacional",
+          sobremi:
+            "Terapeuta Ocupacional, realizo visitas domiciliarias en comunas aledañas a puente alto, responsable, puntual, con vocación, realizo evaluación e intervención en área infanto juvenil (TEA, Síndromes geneticos, Parálisis cerebral) además del área geriátrica (ACV, síndromes geriátricos, artritis reumatoidea, artrosis, etc)",
+          enfermedades:
+            "Hemiplejía, Traumatismo encéfalo craneal (TEC), Parálisis braquial obstétrica",
+          comuna: "Rafael Cañas 50, Santiago",
         },
       ],
     },
@@ -532,6 +616,9 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       saveUser: (data) => {
         setStore({ user: data });
+      },
+      login: (data) => {
+        setStore({ userlogin: data });
       },
       getMessage: () => {
         // fetching data from the backend
