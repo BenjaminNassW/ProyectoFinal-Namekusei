@@ -1,8 +1,8 @@
 """
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
-import os
-from flask import Flask, request, jsonify, url_for, send_from_directory
+
+from flask import Flask, request, jsonify, url_for, send_from_directory, render_template
 from flask_migrate import Migrate
 from flask_swagger import swagger
 from flask_cors import CORS
@@ -12,8 +12,12 @@ from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
 from logging import exception
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_sqlalchemy import SQLAlchemy
+import os
 
-#from models import Person
+
+
 
 ENV = os.getenv("FLASK_ENV")
 static_file_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../public/')
@@ -40,6 +44,8 @@ setup_admin(app)
 # add the admin
 setup_commands(app)
 
+
+
 # Add all endpoints form the API with a "api" prefix
 app.register_blueprint(api, url_prefix='/api')
 
@@ -49,6 +55,7 @@ def handle_invalid_usage(error):
     return jsonify(error.to_dict()), error.status_code
 
 # generate sitemap with all your endpoints
+
 @app.route('/')
 def sitemap():
     if ENV == "development":
@@ -63,6 +70,46 @@ def serve_any_other_file(path):
     response = send_from_directory(static_file_dir, path)
     response.cache_control.max_age = 0 # avoid cache memory
     return response
+@app.route("/")
+def index():
+    return render_template("signup.js")
+
+@app.route("/search")
+def search():
+    nickname = request.args.get("nickname")
+
+    user = Users.query.filter_by(username=nickname).first()
+
+    if user:
+        return user.username
+
+    return "The user doesn't exist."
+
+@app.route("/signup", methods=["GET", "POST"])
+def signup():
+    if request.method == "POST":
+        data = request.get_json()
+        mail = data.mail
+        password = data.password
+        new_user = User(mail=mail, password=password)
+        db.session.add(User)
+        db.session.commit()
+
+        return "You've registered successfully."
+
+    return jsonify({"message": "kim funciona"})
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        user = Users.query.filter_by(username=request.form["username"]).first()
+
+        if user and check_password_hash(user.password, request.form["password"]):
+            return "You are logged in"
+        return "Your credentials are invalid, check and try again."
+
+    return jsonify({"message" : "kim funciona 2 veces"})
+
 
 @app.route('/specialist', methods = ['GET'])
 def getSpecialists():

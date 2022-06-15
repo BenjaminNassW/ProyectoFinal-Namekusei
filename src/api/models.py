@@ -1,26 +1,29 @@
 from flask_sqlalchemy import SQLAlchemy
 
+
 from enum import Enum, unique
 from sqlalchemy.types import ( Enum as OrmEnum
 )
+import os
+dbdir = "sqlite:///" + os.path.abspath(os.getcwd()) + "/database.db"
 
 db = SQLAlchemy()
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(120), unique=True, nullable=False)
+    mail = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(80), unique=False, nullable=False)
-    is_active = db.Column(db.Boolean(), unique=False, nullable=False)
 
     def __repr__(self):
         return f'<User {self.email}>'
 
     def serialize(self):
-        return {
+        return  {
             "id": self.id,
-            "email": self.email,
-            # do not serialize the password, its a security breach
+            "mail": self.mail,
+            "password": self.password
         }
+
 
 """"@unique
 class SpecialistField(str, Enum):
@@ -39,7 +42,6 @@ class Specialist(db.Model):
     specialist_name = db.Column(db.String(120), unique=False)
     specialist_lastname = db.Column(db.String(120),unique=False)
     specialist_field = db.Column(db.String(120), unique=False)
-    "specialist_field = db.Column(OrmEnum(SpecialistField), nullable=True)"
     cost = db.Column(db.Integer, unique=False)
     address = db.Column(db.String(120), unique=False)
     descrpition = db.Column(db.String(250), unique=False)

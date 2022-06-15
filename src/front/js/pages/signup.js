@@ -7,13 +7,14 @@ export const Signup = () => {
 
   return (
     <div className="container col-4">
-      <form>
+      <form method="post" action="{{ url_for('signup') }}">
         <h1 className="mt-5">Crear Cuenta</h1>
         <div className="mb-3">
           <label for="exampleInputEmail1" className="form-label">
             Correo Electronico
           </label>
           <input
+            name="email"
             type="email"
             className="form-control"
             id="exampleInputEmail1"
@@ -28,6 +29,7 @@ export const Signup = () => {
             Contraseña
           </label>
           <input
+            name="password"
             type="password"
             className="form-control"
             id="exampleInputPassword1"
