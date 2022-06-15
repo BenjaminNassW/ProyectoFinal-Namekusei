@@ -17,7 +17,7 @@ export const Home = () => {
 
   return (
     <div className="text-center mt-5">
-      <h1>Busca tu doctor!</h1>
+      <h1>Busca TuDoc!</h1>
       <>
         <input
           placeholder="Nombre"

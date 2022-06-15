@@ -2,8 +2,8 @@
   height: 260px;
   width: 260px;
   background-color: rgba(17, 202, 140, 0.759);
-
-  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.478);
+  border-radius: 5%;
 }
 .description {
   margin: 5px;

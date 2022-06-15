@@ -71,8 +71,11 @@ export const Doctor = () => {
               <h4>Especialista Oftalmologo</h4>
 
               <div>
-                Valor consulta ${" "}
-                {doctores.money?.substring(0, doctores.money?.indexOf("."))}
+                Valor consulta
+                <h4>
+                  {" "}
+                  {doctores.money?.substring(0, doctores.money?.indexOf("."))}
+                </h4>
               </div>
               <div>
                 Atención presencial en La Cisterna, Region Metropolitana
