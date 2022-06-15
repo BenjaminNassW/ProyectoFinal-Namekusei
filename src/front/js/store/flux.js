@@ -440,7 +440,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           age: "36",
           money: "$24168.9",
           city: "Louisville",
-          id: "1",
+          id: "IXSgwfBGnCg",
         },
         {
           namefirst: "Zachary",
@@ -449,7 +449,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           age: "35",
           money: "$58864.43",
           city: "Gainesville",
-          id: "2",
+          id: "gkZ-k3xf25w",
         },
         {
           namefirst: "Jerry",
@@ -458,7 +458,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           age: "87",
           money: "$62066.98",
           city: "Abilene",
-          id: "3",
+          id: "LAwsF-VnFzc",
         },
         {
           namefirst: "Lawerence",
@@ -467,7 +467,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           age: "86",
           money: "$91957.87",
           city: "Corpus Christi",
-          id: "4",
+          id: "TFJw-mTWw_U",
         },
         {
           namefirst: "Marquis",
@@ -476,7 +476,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           age: "50",
           money: "$50295.52",
           city: "Oxnard",
-          id: "5",
+          id: "OhKElOkQ3RE",
         },
         {
           namefirst: "Keven",
@@ -485,7 +485,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           age: "11",
           money: "$89178.9",
           city: "Antioch",
-          id: "6",
+          id: "kooSjlL8LnQ",
         },
         {
           namefirst: "Mauricio",
@@ -494,7 +494,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           age: "51",
           money: "$18866.25",
           city: "Tucson",
-          id: "7",
+          id: "DPEPYPBZpB8",
         },
         {
           namefirst: "Jules",
@@ -503,16 +503,16 @@ const getState = ({ getStore, getActions, setStore }) => {
           age: "13",
           money: "$69676.61",
           city: "Stamford",
-          id: "8",
+          id: "8hHxO3iYuU0",
         },
         {
-          namefirst: "Brandon",
+          namefirst: "America",
           namelast: "Lipsey",
           email: "believingentered@hydrogenates.me",
           age: "91",
           money: "$54116.41",
           city: "tiltil",
-          id: "9",
+          id: "p3ioCes9DfA",
         },
         {
           namefirst: "Corey",
@@ -521,7 +521,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           age: "56",
           money: "$63244.84",
           city: "Gresham",
-          id: "10",
+          id: "mEZ3PoFGs_k",
         },
       ],
     },
@@ -542,6 +542,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             console.log("Error loading message from backend", error)
           );
       },
+
       changeColor: (index, color) => {
         //get the store
         const store = getStore();

@@ -20,9 +20,12 @@
   height: 330px;
   background-color: rgba(15, 172, 120, 0.719);
   margin: 10px;
+  display: flex;
 }
 .imgcard {
   height: 180px;
+  width: 250px;
+  margin-left: 35px;
 }
 .book {
   justify-content: center;

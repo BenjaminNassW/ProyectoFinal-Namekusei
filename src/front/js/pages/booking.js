@@ -19,9 +19,7 @@ export const Booking = () => {
       [e.target.name]: e.target.value,
     });
   };
-  useEffect(() => {
-    console.log(store.user);
-  }, [prueba]);
+  useEffect(() => {}, [prueba]);
   return (
     <div className="container buscador">
       <h1>Datos Personales</h1>

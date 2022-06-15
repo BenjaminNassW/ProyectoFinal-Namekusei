@@ -2,19 +2,18 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import "../../styles/doctor.css";
 import { Context } from "../store/appContext";
+import { Card, Button, Spinner } from "react-bootstrap";
 
 import EvaluationModal from "../component/evaluationModal";
-import Start from "../component/start";
-import PhotosDoctor from "../component/photosdoctor";
 
 export const Doctor = () => {
   const [rating, setRating] = useState([]);
   const [photos, setPhotos] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [doctores, setDoctores] = useState([]);
   let { id } = useParams();
   const { store, actions } = useContext(Context);
   const saveRating = (start, mail, name, experience) => {
-    console.log(rating, "STARTTT");
     const saveExperience = [
       ...(rating || []),
       {
@@ -35,14 +34,18 @@ export const Doctor = () => {
       return id === e.id;
     });
     setDoctores(doctores);
-    console.log(doctores);
   }, []);
 
   useEffect((e) => {
-    setPhotos = PhotosDoctor;
-
-    console.log(photos);
-  });
+    fetch(
+      `https://api.unsplash.com/photos/${id}?client_id=hoZ2vmRiPx_2Q9APlaD0Ck9Z9d1Z8eSo8AUSVsn0eqs`
+    )
+      .then((response) => response.json())
+      .then((json) => {
+        setPhotos(json.urls.raw);
+        setLoading(false);
+      });
+  }, []);
 
   return (
     <div>
@@ -55,7 +58,12 @@ export const Doctor = () => {
       <div className="profile container">
         <div className="row">
           <div className="description col-lg-5 col-sm-11 ">
-            {photos}
+            {loading === true ? (
+              <Spinner animation="border" variant="success" />
+            ) : (
+              <img className="img" src={photos}></img>
+            )}
+
             <div className="ui-review-view__rating__summary__rating">
               <h2>
                 {doctores.namefirst} {doctores.namelast}
