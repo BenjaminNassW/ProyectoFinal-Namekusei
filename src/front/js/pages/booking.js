@@ -21,8 +21,8 @@ export const Booking = () => {
     });
   };
   useEffect(() => {
-    console.log(store.user);
-  }, [prueba]);
+    console.log(toSend);
+  }, [toSend]);
 
   const [toSend, setToSend] = useState({
     from_name: "",
@@ -43,6 +43,7 @@ export const Booking = () => {
         className="row g-3"
         onSubmit={(e) => {
           e.preventDefault();
+          console.log(toSend.message);
           actions.saveUser(dataForm);
           setPrueba(!prueba);
           send(
@@ -99,10 +100,8 @@ export const Booking = () => {
           <input
             onChange={(e) => {
               onChange(e);
-              setToSend({ ...toSend, [e.target.name]: e.target.value });
             }}
-            name="message"
-            value={toSend.message}
+            name="Telefono"
             type="text"
             className="form-control"
             placeholder="+569 98366xxxx"
@@ -133,33 +132,29 @@ export const Booking = () => {
             onChange={(e) => {
               onChange(e);
             }}
-            name="city"
+            name="Ciudad"
             type="text"
             className="form-control"
             id="inputCity"
             placeholder="Santiago"
           />
         </div>
-        <div className="col-md-4">
-          <label htmlFor="inputState" className="form-label">
+        <div className="col-md-3">
+          <label htmlFor="inputCity" className="form-label">
             Comuna
           </label>
-          <select
-            name="Comuna"
+          <input
             onChange={(e) => {
               onChange(e);
             }}
-            id="inputState"
-            className="form-select"
-          >
-            <option name="Comuna" selected>
-              Elige...
-            </option>
-            <option name="prueba1">prueba1</option>
-            <option name="prueba2">prueba2</option>
-            <option name="prueba3">prueba3</option>
-          </select>
+            name="Comuna"
+            type="text"
+            className="form-control"
+            id="inputCity"
+            placeholder="Macul"
+          />
         </div>
+
         <div className="col-md-2">
           <label htmlFor="inputZip" className="form-label">
             Fecha
@@ -184,8 +179,9 @@ export const Booking = () => {
           <input
             onChange={(e) => {
               onChange(e);
+              setToSend({ ...toSend, ["message"]: JSON.stringify(dataForm) });
             }}
-            name="Adress"
+            name="Direccion"
             type="text"
             className="form-control"
             id="inputAddress"
